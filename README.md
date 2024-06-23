@@ -20,6 +20,8 @@ La consulta 3 se demora 1,3 segundos  (tomando la fecha inicial como la primera 
 La consulta 4 se demora 3.7332 Milisegundos
 
 La consulta 5 se demora 600 Milisegundos (tomando la fecha inicial como la primera y la final como la ultima)   
+![image](https://github.com/buenahora/ObligatorioP2Final/assets/134079918/26ce5326-f54b-47ce-bd0a-373066711ef6)
+
 
 
 
