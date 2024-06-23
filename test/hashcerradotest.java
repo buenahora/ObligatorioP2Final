@@ -1,58 +1,61 @@
-package Tests;
 import Classes.Cancion;
 import Classes.Exceptions.HashExceptions.DuplicateKeyHash;
-import uy.edu.um.prog2.adt.hashcerrado.HashCerrado;
+import uy.edu.um.prog2.adt.closedhash.ClosedHashImpl;
 import org.junit.Before;
 import org.junit.Test;
+import uy.edu.um.prog2.adt.closedhash.DuplicateKey;
+
 import static org.junit.Assert.*;
 public class hashcerradotest {
-    HashCerrado hash;
+    ClosedHashImpl<Integer, String> hash;
     @Before
     public void setup(){
-        hash = new HashCerrado();
+        hash = new ClosedHashImpl<>(1000);
     }
     @Test
-    public void testInsertar() throws DuplicateKeyHash {
-        hash.insertar(1);
+    public void testInsertar() throws DuplicateKey {
+        hash.insertar(1, "primero");
         assertEquals(1,hash.getSize());
-        hash.insertar(3);
+        hash.insertar(3, "segundo");
         assertEquals(2,hash.getSize());
     }
-    @Test(expected = DuplicateKeyHash.class)
-    public void testInsertarDuplicado() throws DuplicateKeyHash {
-        Cancion cancion = new Classes.Cancion("Cancion1","Artista1","Pepe",1,1,1,"1","a",1,false,1,"a","a",1,1,1,1,1,1,1,1,1,1,1,1);
 
-        hash.insertar(cancion);
-        hash.insertar(cancion);
+    @Test(expected = DuplicateKey.class)
+    public void testInsertarDuplicado() throws DuplicateKey {
+        hash.insertar(1, "Primero");
+        hash.insertar(1, "Primero");
 
     }
     @Test
-    public void testPertenece() throws DuplicateKeyHash {
-        hash.insertar(10);
-        hash.insertar(5);
-        hash.insertar(7);
-        assertTrue(hash.pertenece(10));
-        assertTrue(hash.pertenece(5));
-        assertTrue(hash.pertenece(7));
-        assertFalse(hash.pertenece(3));
+    public void testPertenece() throws DuplicateKey {
+        hash.insertar(10, "Primero");
+        hash.insertar(5, "Segundo");
+        hash.insertar(7, "Tercero");
+        assertTrue(hash.contains(10));
+        assertTrue(hash.contains(5));
+        assertTrue(hash.contains(7));
+        assertFalse(hash.contains(3));
     }
     @Test
-    public void testEliminar() throws DuplicateKeyHash {
-        hash.insertar(10);
-        hash.insertar(5);
-        hash.insertar(7);
-        hash.eliminar(7);
-
-        assertEquals(2,hash.getSize());//verifica que el tamaño bajo
-        assertFalse(hash.pertenece(7));//verifica que el elemento ya no esta
-        assertEquals(2,hash.getTabla()[7].getEstado());//verifica que la celda esta marcada como borrada
+    public void testEliminar() throws DuplicateKey {
+        hash.insertar(10, "Primero");
+        hash.insertar(5, "Segundo");
+        hash.insertar(7, "Tercero");
+        hash.delete(10);
+        assertFalse(hash.contains(10));
+        hash.delete(5);
+        assertFalse(hash.contains(5));
+        hash.delete(7);
+        assertFalse(hash.contains(7));
     }
     @Test
-    public void testExpandirTabla() throws DuplicateKeyHash {
-        for (int i = 0; i < 11; i++) {
-                hash.insertar(i);
+    public void testExpandirTabla() throws DuplicateKey {
+        for (int i = 0; i < 1000; i++) {
+            hash.insertar(i, "Cancion" + i);
         }
-        assertEquals(11,hash.getSize());
-        assertEquals(20,hash.getTabla().length);
+        assertEquals(1000, hash.getSize());
+
+        hash.insertar(1000, "Cancion1000");
+        assertEquals(1001, hash.getSize());
     }
 }

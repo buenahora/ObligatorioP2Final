@@ -1,4 +1,4 @@
-package Tests;
+
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyList;
 import org.junit.Before;

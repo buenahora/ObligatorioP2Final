@@ -1,12 +1,11 @@
-package Tests;
+
 import Classes.Exceptions.QueueExceptions.EmptyQueueException;
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.queue.MyQueue;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Assertions.*;
 
 public class queuetest {
     private MyQueue<Integer> queue;

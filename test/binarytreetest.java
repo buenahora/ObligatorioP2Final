@@ -1,9 +1,7 @@
-package Tests;
 import Classes.Exceptions.BinaryTreeExceptions.DuplicateKeyTreeException;
-import uy.edu.um.prog2.adt.binarytree.SearchBinaryTreeImpl;
-
 import org.junit.Before;
 import org.junit.Test;
+import uy.edu.um.prog2.adt.binarytree.SearchBinaryTreeImpl;
 
 import java.util.List;
 
