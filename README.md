@@ -1,9 +1,9 @@
 # ObligatorioP2
 Franco Buenahora, Santiago Coll, Lorenzo Martínez
 
-### Creamos este repositorio ya que habiamos seguido trabajando en el mismo repositorio que usamos para la primera entrega, por lo cual tuvimos que hacer un rollback a ese repositorio y crear este nuevo repositorio como version final, por eso los commits a ultimo momento y solo por un integrante del grupo.
-
 ## IMPORTANTE 
+Creamos este repositorio ya que habiamos seguido trabajando en el mismo repositorio que usamos para la primera entrega, por lo cual tuvimos que hacer un rollback a ese repositorio y crear este nuevo repositorio como version final, por eso los commits a ultimo momento y solo por un integrante del grupo.
+
 Para que el programa funciones es necesario poner el CSV en la carpeta src. También verificar que no se haya abierto el csv con excel. Por alguna razon hacer esto cambia la estructura del CSV y pasa las separaciones pasa de ser "nombre","fecha" a ser "nombre,""fecha".
 
 ## Carga de los datos
