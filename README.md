@@ -27,4 +27,7 @@ La consulta 5 se demora 600 Milisegundos (tomando la fecha inicial como la prime
 
 ## Uso De Memoria
 
-![image](https://github.com/buenahora/ObligatorioP2Final/assets/134079918/db5d33e2-3ddf-46b1-a697-54532120b128)
+![image](https://github.com/buenahora/ObligatorioP2Final/assets/87838378/e90fbc8b-dda6-4b49-8569-18da66f8a49a)
+
+Es logico que el metodo de leer el CSV sea el que mas memoria consume ya que cada vez que se lee una línea del archivo CSV, se crea un objeto Cancion y se almacena en una estructura de datos en memoria (hashFechas). Cada uno de estos objetos ocupa espacio en la memoria. Cuanto más grande es el archivo CSV, más objetos se crean y más memoria se utiliza.
+
